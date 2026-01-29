@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useAuth } from '@/contexts/AuthContext';
 import { Shield, Users, BarChart3, Settings, Activity, Trash2, Eye } from 'lucide-react';
 
 interface StoredUser {
@@ -15,6 +16,21 @@ interface StoredUser {
 }
 
 export default function AdminPanel() {
+  const { user, isAdmin } = useAuth();
+
+  // Security: Prevent non-admin access
+  if (!user || !isAdmin) {
+    return (
+      <div style={{ maxWidth: '600px', margin: '0 auto', padding: '3rem 1rem', textAlign: 'center' }}>
+        <Shield style={{ width: '64px', height: '64px', margin: '0 auto 1rem', color: '#EF4444', opacity: 0.5 }} />
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#DC2626', marginBottom: '0.5rem' }}>Access Denied</h2>
+        <p style={{ color: '#6B7280', marginBottom: '2rem' }}>
+          You do not have permission to access the admin panel. This area is restricted to administrators only.
+        </p>
+        <p style={{ fontSize: '0.875rem', color: '#9CA3AF' }}>If you believe this is an error, please contact your administrator.</p>
+      </div>
+    );
+  }
   const [adminTab, setAdminTab] = useState<'users' | 'analytics' | 'settings'>('users');
   const [users, setUsers] = useState<StoredUser[]>([]);
   const [aiEnabled, setAiEnabled] = useState(true);
