@@ -21,9 +21,10 @@ export default function Navbar({ activeSection, setActiveSection, onAIToggle, sh
     { id: 'quiz', icon: Trophy, label: 'Quiz' },
   ];
 
-  if (isAdmin) {
-    menuItems.push({ id: 'admin', icon: Shield, label: 'Admin' });
-  }
+  // Only add admin menu for admins
+  const allMenuItems = isAdmin
+    ? [...menuItems, { id: 'admin', icon: Shield, label: 'Admin' }]
+    : menuItems;
 
   return (
     <>
