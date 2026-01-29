@@ -95,7 +95,7 @@ export default function Navbar({ activeSection, setActiveSection, onAIToggle, sh
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-gray-200 bg-white">
             <div className="container mx-auto px-4 py-4 space-y-2">
-              {menuItems.map((item) => (
+              {allMenuItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => {
