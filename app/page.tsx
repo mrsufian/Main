@@ -38,7 +38,7 @@ export default function Home() {
       />
       
       <main className="container mx-auto px-4 py-6 pb-24 md:pb-6 max-w-7xl">
-        {activeSection === 'dashboard' && <Dashboard setActiveSection={setActiveSection} />}
+        {activeSection === 'dashboard' && <Dashboard setActiveSection={handleSectionChange} />}
         {activeSection === 'read' && <ReadingSection />}
         {activeSection === 'quiz' && <QuizSection />}
         {activeSection === 'admin' && <AdminPanel />}
