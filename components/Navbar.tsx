@@ -45,7 +45,7 @@ export default function Navbar({ activeSection, setActiveSection, onAIToggle, sh
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-2">
-              {menuItems.map((item) => (
+              {allMenuItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => {
