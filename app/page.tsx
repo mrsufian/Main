@@ -11,9 +11,18 @@ import AdminPanel from '@/components/AdminPanel';
 import Navbar from '@/components/Navbar';
 
 export default function Home() {
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
   const [activeSection, setActiveSection] = useState<'dashboard' | 'read' | 'quiz' | 'ai' | 'admin'>('dashboard');
   const [showAI, setShowAI] = useState(false);
+
+  // Security: Prevent non-admin access to admin section
+  const handleSectionChange = (section: 'dashboard' | 'read' | 'quiz' | 'ai' | 'admin') => {
+    if (section === 'admin' && !isAdmin) {
+      alert('You do not have permission to access the admin panel.');
+      return;
+    }
+    setActiveSection(section);
+  };
 
   if (!user) {
     return <AuthPage />;
