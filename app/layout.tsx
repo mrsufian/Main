@@ -22,10 +22,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icon-192x192.png" />
+        <link rel="icon" type="image/png" href="/icon-192x192.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="EpicQuiz" />
+        <meta name="mobile-web-app-capable" content="yes" />
+      </head>
       <body>
         <AuthProvider>
           {children}
         </AuthProvider>
+        <ServiceWorkerRegister />
       </body>
     </html>
   );
