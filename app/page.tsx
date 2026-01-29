@@ -30,9 +30,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <Navbar 
-        activeSection={activeSection} 
-        setActiveSection={setActiveSection}
+      <Navbar
+        activeSection={activeSection}
+        setActiveSection={handleSectionChange}
         onAIToggle={() => setShowAI(!showAI)}
         showAI={showAI}
       />
