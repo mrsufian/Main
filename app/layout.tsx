@@ -6,6 +6,10 @@ import ServiceWorkerRegister from '@/components/ServiceWorkerRegister';
 export const metadata: Metadata = {
   title: 'EpicQuiz - Essential Epidemiology Learning Platform',
   description: 'Complete educational web app for Essential Epidemiology with AI-powered learning assistance',
+  icons: {
+    icon: '/icon-192x192.svg',
+    apple: '/icon-192x192.svg',
+  },
 };
 
 export const viewport: Viewport = {
