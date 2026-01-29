@@ -32,7 +32,7 @@ export default function Home() {
         {activeSection === 'dashboard' && <Dashboard setActiveSection={setActiveSection} />}
         {activeSection === 'read' && <ReadingSection />}
         {activeSection === 'quiz' && <QuizSection />}
-        {activeSection === 'admin' && user.role === 'admin' && <AdminPanel />}
+        {activeSection === 'admin' && <AdminPanel />}
       </main>
 
       {showAI && <AIAssistant onClose={() => setShowAI(false)} />}
